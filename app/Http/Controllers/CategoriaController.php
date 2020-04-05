@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\CategoriaProduto;
+use App\Categoria;
 use Illuminate\Http\Request;
 
-class CategoriaProdutoController extends Controller {
+class CategoriaController extends Controller {
 
         private $categoria;
 
-        public function __construct(CategoriaProduto $categoria) {
+        public function __construct(Categoria $categoria) {
             $this->categoria = $categoria;
         }
 
@@ -42,10 +42,10 @@ class CategoriaProdutoController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param  \App\CategoriaProduto  $categoriaProduto
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(CategoriaProduto $categoriaProduto) {
+    public function show($id) {
         $categoria = $this->categoria->find($id);
         if (!$categoria) {
             return response()->json([], 404);
@@ -57,10 +57,10 @@ class CategoriaProdutoController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CategoriaProduto  $categoriaProduto
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoriaProduto $categoriaProduto) {
+    public function update(Request $request, $id) {
         try {
             $data = $request->all();
 
@@ -80,10 +80,10 @@ class CategoriaProdutoController extends Controller {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\CategoriaProduto  $categoriaProduto
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CategoriaProduto $categoriaProduto) {
+    public function destroy($id) {
         try {
             $categoria = $this->categoria->find($id);
             if (!$categoria) {

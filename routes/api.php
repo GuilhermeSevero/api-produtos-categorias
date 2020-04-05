@@ -19,4 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::apiResource('produtos', 'ProdutoController');
-Route::apiResource('categorias', 'CategoriaProdutoController');
+Route::apiResource('categorias', 'CategoriaController');

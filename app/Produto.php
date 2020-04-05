@@ -21,6 +21,6 @@ class Produto extends Model
     ];
 
     public function id_categoria_produto() {
-        return $this->belongsTo('App\CategoriaProduto', 'foreign_key');
+        return $this->belongsTo('App\Categoria', 'foreign_key');
     }
 }

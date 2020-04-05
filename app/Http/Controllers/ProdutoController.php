@@ -42,7 +42,7 @@ class ProdutoController extends Controller {
     /**
      * Display the specified resource.
      *
-     * @param  \App\Produto  $produto
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
@@ -57,7 +57,7 @@ class ProdutoController extends Controller {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Produto  $produto
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
@@ -80,7 +80,7 @@ class ProdutoController extends Controller {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Produto  $produto
+     * @param  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {

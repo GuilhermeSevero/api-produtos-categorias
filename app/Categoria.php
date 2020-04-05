@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CategoriaProduto extends Model
+class Categoria extends Model
 {
     protected $table = 'tb_categoria_produto';
 
