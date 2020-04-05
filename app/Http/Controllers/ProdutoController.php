@@ -16,10 +16,19 @@ class ProdutoController extends Controller {
     /**
      * Display a listing of the resource.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return response()->json($this->produto->paginate(25));
+    public function index(Request $request) {
+        $nome = $request->query('nome_produto');
+        $id_categoria = $request->query('id_categoria_produto');
+
+        $produtos = $this->produto;
+
+        if ($nome) $produtos = $produtos->where('nome_produto', 'like', $nome);
+        if ($id_categoria) $produtos = $produtos->where('id_categoria_produto', '=', $id_categoria);
+
+        return response()->json($produtos->paginate(25));
     }
 
     /**
