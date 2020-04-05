@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produto extends Model
 {
-    protected $table = 'tb_produtos';
+    protected $table = 'tb_produto';
 
     protected $primaryKey = 'id_produto';
 
     protected $fillable = [
-        'nome_protuto', 'valor_produto',
+        'nome_produto', 'valor_produto', 'id_categoria_produto'
     ];
 
     public $timestamps = false;
@@ -20,8 +20,7 @@ class Produto extends Model
         'valor_produto' => 'float',
     ];
 
-    public function categoria_produto()
-    {
+    public function id_categoria_produto() {
         return $this->belongsTo('App\CategoriaProduto', 'foreign_key');
     }
 }
