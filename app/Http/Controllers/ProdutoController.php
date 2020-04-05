@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Produto;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Respose;
 
 class ProdutoController extends Controller {
 
@@ -15,19 +13,22 @@ class ProdutoController extends Controller {
         $this->produto = $produto;
     }
 
-    public function list() {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index() {
         return response()->json($this->produto->paginate(25));
     }
 
-    public function retrive($id) {
-        $produto = $this->produto->find($id);
-        if (!$produto) {
-            return response()->json([], 404);
-        }
-        return response()->json(['data'=> $produto]);
-    }
-
-    public function create(Request $request) {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request) {
         try {
             $data = $request->all();
             $produto = $this->produto->create($data);
@@ -38,6 +39,27 @@ class ProdutoController extends Controller {
         }
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Produto  $produto
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id) {
+        $produto = $this->produto->find($id);
+        if (!$produto) {
+            return response()->json([], 404);
+        }
+        return response()->json(['data'=> $produto]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Produto  $produto
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id) {
         try {
             $data = $request->all();
@@ -55,7 +77,13 @@ class ProdutoController extends Controller {
         }
     }
 
-    public function delete($id) {
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Produto  $produto
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id) {
         try {
             $produto = $this->produto->find($id);
             if (!$produto) {
