@@ -17,6 +17,9 @@ Deve-se seguir o modelo apresentado em: `.env.example`
 $ git clone https://github.com/GuilhermeSevero/api-produtos-categorias.git
 $ cd api-produtos-categorias
 
+# Instalar dependencias do projeto
+$ composer install
+
 # Executa serviço da API
 $ php artisan serve
 ```
@@ -26,6 +29,9 @@ $ php artisan serve
 ```sh
 $ git clone https://github.com/GuilhermeSevero/api-produtos-categorias.git
 $ cd api-produtos-categorias
+
+# Instalar dependencias do projeto
+$ composer install
 
 # Levando em consideração que as configurações de pasta e site já foram feitas
 $ .\homestead.bat up
