@@ -20,7 +20,7 @@ class Produto extends Model
         'valor_produto' => 'float',
     ];
 
-    public function id_categoria_produto() {
-        return $this->belongsTo('App\Categoria', 'foreign_key');
+    public function categoria() {
+        return $this->belongsTo('App\Categoria', 'id_categoria_produto');
     }
 }
