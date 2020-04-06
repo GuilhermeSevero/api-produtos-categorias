@@ -18,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource('produtos', 'ProdutoController');
-Route::apiResource('categorias', 'CategoriaController');
+Route::apiResources([
+    'produtos' => 'ProdutoController',
+    'categorias' => 'CategoriaController'
+]);
