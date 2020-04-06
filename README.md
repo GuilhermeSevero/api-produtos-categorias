@@ -1,4 +1,4 @@
-# API - Sistema Locadora de Filmes
+# API - Sistema Manutenção de Produtos e Categorias
 > Deverá ser desenvolvido um sistema que permita ao usuário manter produtos e suas categorias. Dentre os requisitos de negócio para essa tarefa estão:
 
 1. CRUD de categorias de produto: Cadastrar categoria, alterar categoria, listar categorias e excluir categoria.
