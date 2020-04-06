@@ -19,7 +19,7 @@ class CategoriaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return response()->json(['data' => $this->categoria]);
+        return response()->json(['data' => $this->categoria->all()]);
     }
 
     /**
