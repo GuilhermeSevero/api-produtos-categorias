@@ -19,7 +19,7 @@ class CategoriaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return response()->json($this->categoria->paginate(25));
+        return response()->json(['data' => $this->categoria]);
     }
 
     /**
