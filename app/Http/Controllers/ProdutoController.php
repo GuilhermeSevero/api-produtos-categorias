@@ -22,13 +22,25 @@ class ProdutoController extends Controller {
     public function index(Request $request) {
         $nome = $request->query('nome_produto');
         $id_categoria = $request->query('id_categoria_produto');
+        $expand = $request->query('expand', false);
 
         $produtos = $this->produto;
 
         if ($nome) $produtos = $produtos->where('nome_produto', 'like', $nome);
         if ($id_categoria) $produtos = $produtos->where('id_categoria_produto', '=', $id_categoria);
 
-        return response()->json($produtos->paginate(25));
+        $produtos = $produtos->get();
+
+        if ($expand) {
+            $return = [];
+            foreach ($produtos as $produto) {
+                $produto['categoria'] = $produto->categoria;
+                array_push($return, $produto);
+            }
+            $produtos = $return;
+        }
+
+        return response()->json(['data' => $produtos], 200);
     }
 
     /**
